@@ -16,6 +16,7 @@ times = zeros(301,1);
 tic;
 
 %301
+cluster = parcluster;
 for i=1:301
     x=tic;
     % Read an image
