@@ -14,7 +14,7 @@ clear;
 addpath('include/');
 addpath('src/');
 % Read an image
-img = imread('data/video/thumb0001.png');
+img = imread('data/videos/thumb0002.png');
 
 % Load a learned model
 load('data/friqueeLearnedModel.mat');
