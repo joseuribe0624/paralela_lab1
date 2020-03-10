@@ -11,21 +11,21 @@ addpath('src/');
 % Load a learned model
 load('data/friqueeLearnedModel.mat');
 profile on;
-%scores = zeros(301,1);
-%times = zeros(301,1);
+scores = zeros(301,1);
+times = zeros(301,1);
 
 %video 2
-scores = zeros(272,1);
-times = zeros(272,1);
+%scores = zeros(272,1);
+%times = zeros(272,1);
 tic;
 
 %301
 %cluster = parcluster;
 clusterConfig1 = 'local';
-parfor i=1:272
+parfor i=1:301
     x=tic;
     % Read an image
-    filename=sprintf('data/video2/thumb%04d.png',i);
+    filename=sprintf('data/video/thumb%04d.png',i);
     img = imread(filename);
     
     % Extract FRIQUEE-ALL features of this image
