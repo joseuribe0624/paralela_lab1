@@ -22,8 +22,10 @@ tic;
 %301
 %cluster = parcluster;
 clusterConfig1 = 'local';
+p2 = Par(301);
 parfor i=1:301
     x=tic;
+    Par.tic;
     % Read an image
     filename=sprintf('data/video/thumb%04d.png',i);
     img = imread(filename);
@@ -37,8 +39,11 @@ parfor i=1:301
     testFriqueeALL = testFeatNormalize(testFriqueeFeats.friqueeALL, friqueeLearnedModel.trainDataMinVals, friqueeLearnedModel.trainDataRange);
     qualityScore = svmpredict (0, double(testFriqueeALL), friqueeLearnedModel.trainModel, '-b 1 -q');
     scores(i) = qualityScore;
+    p2(i)= Par.toc;
     r=toc(x);
     times(i)=r;
 end
 toc;
 profile viewer;
+stop(p2);
+plot(p2);
