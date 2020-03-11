@@ -88,7 +88,7 @@ for scale=1:Nsc-1
 %         o_c_i = o_c_i - mean(o_c_i);
         o_c = o_c - mean(o_c);
         
-        tempY = (Y*inv(C_x)).*Y/N;
+        tempY = (Y/C_x).*Y/N;
         z = sqrt(sum(tempY,2));
         ind = find(z~=0);
 
